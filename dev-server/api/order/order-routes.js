@@ -1,10 +1,13 @@
 import express from 'express';
 const router  = express.Router();
+import * as controller from './order-controller';
 
 //create new order
-router.post('/order', (req,res)=>{
+/*router.post('/order', (req,res)=>{
     res.send('post.order - create an order');
-});
+});*/
+
+router.post('/order', controller.index);
 
 //get orders
 router.get('/order', (req,res)=>{
