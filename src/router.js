@@ -2,10 +2,18 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import OrderCreate from "./views/order/OrderCreate.vue";
+import OrderList from "./views/order/OrderList";
+import OrderEdit from "./views/order/OrderEdit";
+import OrderDelete from "./views/order/OrderDelete";
+import Register from "./views/authentication/Register";
+import Login from "./views/authentication/Login";
 
 Vue.use(Router);
 
 //assigned to a constant in order to access properties
+
+const isLoggedIn = false;
+
 const routes = new Router({
     mode: "history",
     base: process.env.BASE_URL,
@@ -17,13 +25,72 @@ const routes = new Router({
         }, {
             path: "/order/new",
             name: "order-create",
-            component: OrderCreate
-        },/*
+            component: OrderCreate,
+            beforeEnter: (toolbar,from,next) => {
+                if (isLoggedIn){
+                    next();
+                } else {
+                    next('/login');
+                }
+            }
+        }, {
+            path: "/order",
+            name: "order-list",
+            component: OrderList,
+            beforeEnter: (toolbar,from,next) => {
+                if (isLoggedIn){
+                    next();
+                } else {
+                    next('/login');
+                }
+            }
+        }, {
+            path: "/exam/:id",
+            name: "order-edit",
+            component: OrderEdit,
+            beforeEnter: (toolbar,from,next) => {
+                if (isLoggedIn){
+                    next();
+                } else {
+                    next('/login');
+                }
+            }
+        }, {
+            path: "/exam/del/:id",
+            name: "order-delete",
+            component: OrderDelete,
+            beforeEnter: (toolbar,from,next) => {
+                if (isLoggedIn){
+                    next();
+                } else {
+                    next('/login');
+                }
+            }
+        },
         {
-            path: "/about",
-            name: "about",
-            component: About,
-        }, */{
+            path: "/login",
+            name: "login",
+            component: Login,
+            beforeEnter: (toolbar,from,next) => {
+                if (!isLoggedIn){
+                    next();
+                } else {
+                    next('/');
+                }
+            }
+        },{
+            path: "/register",
+            name: "register",
+            component: Register,
+            beforeEnter: (toolbar,from,next) => {
+                if (!isLoggedIn){
+                    next();
+                } else {
+                    next('/');
+                }
+            }
+        },
+        {
             path: "*",
             redirect: "/"
         }

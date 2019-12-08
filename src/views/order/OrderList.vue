@@ -8,7 +8,9 @@
 </template>
 
 <script>
-    const API_URL = "http://localhost:3000";
+    import store from '../../store';
+    //const API_URL = "http://localhost:3000";
+    const API_URL = store.state.apiUrl;
     export default {
         name: "OrderList",
         mounted() {

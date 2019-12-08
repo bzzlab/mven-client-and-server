@@ -32,6 +32,16 @@
                             <router-link class="dropdown-item" to="/order/del/:id">Delete</router-link>-->
                         </div>
                     </li>
+                    <!-- Authentication menu -->
+                    <li class="nav-item">
+<!--                        <router-link class="nav-link" to="/order/new" exact>Order</router-link>-->
+                        <router-link class="nav-link dropdown-toggle" to="/login" role="button"
+                                     data-toggle="dropdown" aria-haspopup="true"
+                                     aria-expanded="false" exact>Login</router-link>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <router-link class="dropdown-item" to="/register" exact>Register</router-link>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </nav>
