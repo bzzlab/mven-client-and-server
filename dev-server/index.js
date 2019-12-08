@@ -26,7 +26,7 @@ app.get('*', (req, res) => {
         // Returns the main index file in production environment
         return res.sendFile('index.html', { root: __dirname + '/../dist/' });
     }
-})
+});
 
 // Starts the server on the given port
 app.listen(port, () => {
