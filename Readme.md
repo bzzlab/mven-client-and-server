@@ -1,4 +1,12 @@
-## Get started with the server (backend)
+## Get started with MVEN tutorial
+### What means MVEN
+MVEN is an acronym for technology stack that is composed by  
+* M: MongoDB (nosql database, backend)
+* V: Vue.js (JavaScript based frontend framework which incorporates the best parts from react and angular)
+* E: Express.js (backend, JavaScript based middleware module for routing and more)
+* N: Node.js (backend, JavaScript based infrastructure for running and loading JavaScript programs and modules)
+
+
 ### Prerequisite
 You need to install [nodejs](https://nodejs.org/en/) in order to install the required infrastructure. With the installation of nodejs the tool `npm` (Node package manager) is included.
 
