@@ -19,9 +19,10 @@ Example: `sudo npm install` and then type  in the administrator password
 
 ### Installation guide
 1. Download the zip-file and extract the app     
-2. Change into the app directory i.e.
+2. Create and change into the app directory i.e.
 ```
-cd form-client-v1
+mkdir mven-tutorial-1
+cd mven-tutorial-1
 ```
 3. Install app dependencies
 ```
