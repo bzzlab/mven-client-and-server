@@ -6,7 +6,9 @@
   "scripts": {
     "client": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build-client": "webpack --mode=development --config webpack.config.js",
-    "build-all": "set NODE_ENV=production && babel dev-server --out-dir prod-server && webpack --mode=development --config webpack.config.js",
+    "sass-watch": "node-sass -w src/assets/scss -o src/assets/styles --recursive",
+    "sass": "node-sass src/assets/scss -o src/assets/styles --recursive",
+    "build-all": "set NODE_ENV=development && npm run sass && babel dev-server --out-dir prod-server && webpack --mode=development --config webpack.config.js",
     "build-server": "babel dev-server --out-dir prod-server --watch",
     "all": "concurrently \"set NODE_ENV=development\" \"babel dev-server --out-dir prod-server --watch\" \"nodemon prod-server/index.js\" \"npm run client\" ",
     "temp": "set NODE_ENV=development && nodemon prod-server/index.js"
@@ -42,11 +44,13 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.6.0",
+    "alasql": "^0.5.1",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.5",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
+    "nodemon": "^1.19.3",
     "popper.js": "^1.15.0"
   }
 }

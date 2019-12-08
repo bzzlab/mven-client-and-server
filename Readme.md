@@ -86,6 +86,41 @@ npm install cors morgan --save-dev
 $ npm install body-parser --save
 ```
 
+### How to test the REST-API
+#### Postman
+Postman is a tool for testing the backend API. The following show different requests
+
+##### ORDER get
+GET-Request: 
+```
+localhost:3000/api/order
+```
+
+##### ORDER post
+POST-Request: 
+```
+localhost:3000/api/order
+```
+Data: 
+```
+{
+    "email": "anna.muster@beispiel.ch",
+    "password": "test",
+    "firstname": "Hans",
+    "lastname": "Muster",
+    "street": "seestrasse 955",
+    "city": "horgen",
+    "zip": "8600",
+    "numOfTickets": "3"
+}
+```
+Example response:
+```
+{
+    "message": "We received your order!",
+    "id": "10-8"
+}
+```
 
 ### Helpers and Quirks
 
@@ -112,4 +147,3 @@ Setting the running mode differs between MacOS and Windows.
 
 
 
- 
