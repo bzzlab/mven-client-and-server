@@ -20,6 +20,7 @@
                         <router-link class="nav-link" to="/" exact>Home</router-link>
                     </li>
                     <!-- Order menu -->
+                    <!--<li v-if="$store.state.isLoggedIn" class="nav-item">-->
                     <li class="nav-item">
 <!--                        <router-link class="nav-link" to="/order/new" exact>Order</router-link>-->
                         <router-link class="nav-link dropdown-toggle" to="/order" role="button"
@@ -32,15 +33,29 @@
                             <router-link class="dropdown-item" to="/order/del/:id">Delete</router-link>-->
                         </div>
                     </li>
+
+                    <!-- registration menu -->
+                    <!--<li v-if="!$store.state.isLoggedIn" class="nav-item">-->
+                    <li class="nav-item">
+                        <router-link to="/register" class="nav-link" exact>
+                            Register
+                        </router-link>
+                    </li>
                     <!-- Authentication menu -->
                     <li class="nav-item">
-<!--                        <router-link class="nav-link" to="/order/new" exact>Order</router-link>-->
-                        <router-link class="nav-link dropdown-toggle" to="/login" role="button"
-                                     data-toggle="dropdown" aria-haspopup="true"
-                                     aria-expanded="false" exact>Login</router-link>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <router-link class="dropdown-item" to="/register" exact>Register</router-link>
-                        </div>
+                        <router-link to="/login" class="nav-link" exact>
+                            Login
+                        </router-link>
+                    </li>
+                    <li class="nav-item">
+                        <!--<a v-on:click.prevent="logout()" class="nav-link" href="#">Logout</a>-->
+                        <a class="nav-link" href="#">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Display the current user's username in the navbar -->
+                        <a class="nav-link" href="#">
+                            {{ this.$store.state.username ? this.$store.state.username : 'User' }}
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -49,7 +64,15 @@
 </template>
 
 <script>
+    import * as auth from '../services/AuthService';
+
     export default {
-        name: "navbar"
+        name: 'Navbar',
+        methods: {
+            logout: function() {
+                auth.logout();
+                this.$router.push({ name: 'home' });
+            }
+        }
     }
 </script>

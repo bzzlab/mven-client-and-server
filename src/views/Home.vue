@@ -5,7 +5,11 @@
                 abstract="Early bird ticket order for the Frauenfeld festival 2020!"
         />
         <router-link class="nav-link" to="/order/new">
-            <button type="button" class="btn btn-primary">{{title}}</button>
+            <button type="button" class="btn btn-primary">{{label1}}</button>
+        </router-link>
+
+        <router-link class="nav-link" to="/login">
+            <button type="button" class="btn btn-primary">{{label2}}</button>
         </router-link>
     </div>
 </template>
@@ -17,7 +21,8 @@ export default {
     name: "home",
     data: function () {
         return {
-            title: "Proceed here for a new order!"
+            label1: "Proceed here for a new order!",
+            label2: "Login"
         }
     },
     components: {

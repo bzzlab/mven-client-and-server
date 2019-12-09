@@ -1,7 +1,7 @@
 <template>
     <div>
     <h1>Login</h1>
-    <form class="custom-form">
+    <form class="custom-form" v-on:submit="onSubmit">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username"/>
@@ -18,11 +18,21 @@
 </template>
 
 <script>
+    import * as auth from '../../services/AuthService'
+
     export default {
-        name: "Login"
-    }
-</script>
-
-<style scoped>
-
-</style>
+        name: 'login',
+        data: function() {
+            return {
+                username: '',
+                password: ''
+            }
+        },
+        methods: {
+            onSubmit: function(event) {
+                event.preventDefault();
+                auth.login();
+                this.$router.push({ name: 'home' });
+            }
+        }
+    }</script>

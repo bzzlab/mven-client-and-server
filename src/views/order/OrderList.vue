@@ -21,8 +21,8 @@
         data: () => ({
             orders: [],
             order: {
-                email: "",
-                password: "",
+                firstname: "",
+                lastname: "",
                 street: "",
                 city: "",
                 zip:"",

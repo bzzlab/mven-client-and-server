@@ -7,14 +7,14 @@ import OrderEdit from "./views/order/OrderEdit";
 import OrderDelete from "./views/order/OrderDelete";
 import Register from "./views/authentication/Register";
 import Login from "./views/authentication/Login";
+import * as auth from './services/AuthService'
 
 Vue.use(Router);
 
 //assigned to a constant in order to access properties
+//const isLoggedIn = false;
 
-const isLoggedIn = false;
-
-const routes = new Router({
+export default new Router({
     mode: "history",
     base: process.env.BASE_URL,
     routes: [
@@ -27,7 +27,7 @@ const routes = new Router({
             name: "order-create",
             component: OrderCreate,
             beforeEnter: (toolbar,from,next) => {
-                if (isLoggedIn){
+                if (auth.isLoggedIn){
                     next();
                 } else {
                     next('/login');
@@ -38,29 +38,29 @@ const routes = new Router({
             name: "order-list",
             component: OrderList,
             beforeEnter: (toolbar,from,next) => {
-                if (isLoggedIn){
+                if (auth.isLoggedIn){
                     next();
                 } else {
                     next('/login');
                 }
             }
         }, {
-            path: "/exam/:id",
+            path: "/order/:id",
             name: "order-edit",
             component: OrderEdit,
             beforeEnter: (toolbar,from,next) => {
-                if (isLoggedIn){
+                if (auth.isLoggedIn){
                     next();
                 } else {
                     next('/login');
                 }
             }
         }, {
-            path: "/exam/del/:id",
+            path: "/order/del/:id",
             name: "order-delete",
             component: OrderDelete,
             beforeEnter: (toolbar,from,next) => {
-                if (isLoggedIn){
+                if (auth.isLoggedIn){
                     next();
                 } else {
                     next('/login');
@@ -72,7 +72,8 @@ const routes = new Router({
             name: "login",
             component: Login,
             beforeEnter: (toolbar,from,next) => {
-                if (!isLoggedIn){
+                //if (!auth.isLoggedIn){
+                if (true){
                     next();
                 } else {
                     next('/');
@@ -83,7 +84,7 @@ const routes = new Router({
             name: "register",
             component: Register,
             beforeEnter: (toolbar,from,next) => {
-                if (!isLoggedIn){
+                if (!auth.isLoggedIn){
                     next();
                 } else {
                     next('/');
@@ -99,4 +100,4 @@ const routes = new Router({
 });
 
 //export routes (aka navigation information)
-export default routes;
+//export default routes;

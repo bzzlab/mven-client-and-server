@@ -2,7 +2,13 @@ import store from '../store';
 
 export function isLoggedIn() {
     const token = localStorage.getItem('token');
-    return token != null;
+    if (token == null){
+        console.log("is not logged in!");
+        return false;
+    } else {
+        console.log("is logged in!");
+        return true;
+    }
 }
 
 export function login() {
@@ -15,7 +21,8 @@ export function login() {
 
 export function setToken(token) {
     localStorage.setItem('token', JSON.stringify(token));
-    store.dispatch('authenticate');
+    store.dispatch('authenticate')
+        .then(res => console.log("Token set for authentication!"));
 }
 
 export function getUsername() {
@@ -25,3 +32,9 @@ export function getUsername() {
 export function getUserid() {
     return 1;
 }
+
+export function logout() {
+    localStorage.clear();
+    store.dispatch('authenticate');
+}
+

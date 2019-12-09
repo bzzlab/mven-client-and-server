@@ -5,22 +5,12 @@
         <h4>Customer information</h4>
         <form @submit.prevent="addOrder">
             <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="email">Email</label>
-                    <input v-model="order.email" type="email" class="form-control" id="email" placeholder="Email">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="password">Password</label>
-                    <input v-model="order.password" type="password" class="form-control" id="password" placeholder="Password">
-                </div>
-            </div>
-            <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="firstname">First name</label>
                 <input v-model="order.firstname" type="text" class="form-control" id="firstname" placeholder="First name">
             </div>
             <div class="form-group col-md-6">
-                <label for="password">Last name</label>
+                <label for="lastname">Last name</label>
                 <input v-model="order.lastname" type="text" class="form-control" id="lastname" placeholder="Last name"/>
             </div>
             <div class="form-group col-md-8">
@@ -99,8 +89,8 @@
             orderid: "ch-17",
             showModal: false,
             order: {
-                email: "",
-                password: "",
+                firstname: "",
+                lastname: "",
                 street: "",
                 city: "",
                 zip:"",
