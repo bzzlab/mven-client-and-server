@@ -53,6 +53,10 @@
                     </li>
                     <li class="nav-item">
                         <!-- Display the current user's username in the navbar -->
+                        <!-- TODO: Instead of 'User' is it possible to add navigation item
+                                in order to select the login button and when logged in then
+                                the logged-in-user is shown.
+                        -->
                         <a class="nav-link" href="#">
                             {{ this.$store.state.username ? this.$store.state.username : 'User' }}
                         </a>

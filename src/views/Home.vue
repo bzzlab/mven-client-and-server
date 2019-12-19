@@ -7,10 +7,6 @@
         <router-link class="nav-link" to="/order/new">
             <button type="button" class="btn btn-primary">{{label1}}</button>
         </router-link>
-
-        <router-link class="nav-link" to="/login">
-            <button type="button" class="btn btn-primary">{{label2}}</button>
-        </router-link>
     </div>
 </template>
 <script>
@@ -21,12 +17,19 @@ export default {
     name: "home",
     data: function () {
         return {
-            label1: "Proceed here for a new order!",
-            label2: "Login"
+            label1: "Proceed here for a new order!"
         }
     },
     components: {
         JumbotronF
+    },
+    //Check response from the user
+    beforeCreate() {
+        fetch(this.$store.state.apiUrl + '/api/user', {
+            method: 'GET'
+        })
+        .then(res => res.json())
+        .then(res => console.log(res));
     }
 };
 </script>

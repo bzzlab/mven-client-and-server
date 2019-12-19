@@ -1,14 +1,10 @@
-// export function index(req, res) {
-//     return res.json({message: "Hello World"});
-// }
+export function index(req, res) {
+    return res.json({message: "Hello World"});
+}
+
+/*
 import Account from './account';
 
-/**
- * Main function for getting/processing user data
- * @param req
- * @param res
- * @returns {*}
- */
 export function index(req,res) {
     //init account
     let new_account = new Account(
@@ -18,10 +14,16 @@ export function index(req,res) {
     );
 
     console.log(new_account);
-    return res.json({message: "User"+new_account.email+"registred!", id: new_account.id});
+    return res.json({message: "User"+new_account.email+"registered!", id: new_account.id});
 }
 
 function generateUserId() {
     return Math.floor(Math.random()*100).toString()+'-'
         +Math.floor(Math.random()*100).toString();
 }
+
+
+export function index(req, res) {
+    return res.status(200).json({ message: 'Hello World' });
+}
+*/
