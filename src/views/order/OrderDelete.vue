@@ -13,7 +13,7 @@
         name: "OrderList",
         mounted() {
             //later replace by fetch(this.$store.state.apiUrl);
-            fetch(API_URL +'/api/order', {method: 'GET'})
+            fetch(API_URL +'/api/order', {method: 'DELETE'})
                 .then(res => console.log(res.json()));
         },
         data: () => ({

@@ -13,7 +13,7 @@
         name: "OrderEdit",
         mounted() {
             //later replace by fetch(this.$store.state.apiUrl);
-            fetch(API_URL +'/api/order', {method: 'GET'})
+            fetch(API_URL +'/api/order', {method: 'PUT'})
                 .then(res => console.log(res.json()));
         },
         data: () => ({

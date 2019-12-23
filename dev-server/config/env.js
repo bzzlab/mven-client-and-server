@@ -29,7 +29,7 @@ export function setEnvironment(app) {
 function setDevEnv(app) {
     process.env.NODE_ENV = 'development';
     //remark - these log entries appear only on the server and are not sent to the client!
-    //console.log(`running in development mode`); --> done now in index.js
+    //console.log(`running in development mode`); --> done now in create.js
 
     //parsing incoming (HTTP) request bodies
     app.use(bodyParser.json());
