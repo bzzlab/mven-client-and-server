@@ -5,7 +5,7 @@ export function index(req, res) {
 /*
 import Account from './account';
 
-export function create(req,res) {
+export function index(req,res) {
     //init account
     let new_account = new Account(
         generateUserId(),
@@ -23,7 +23,7 @@ function generateUserId() {
 }
 
 
-export function create(req, res) {
+export function index(req, res) {
     return res.status(200).json({ message: 'Hello World' });
 }
 */

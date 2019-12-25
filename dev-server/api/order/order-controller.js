@@ -1,37 +1,13 @@
 import { Order } from './order.js';
 import Address from '../user/address';
 
-
 /**
- * Get all orders
+ * Main function for getting/processing order data
  * @param req
  * @param res
  * @returns {*}
  */
-export function index(req, res) {
-    //stub function
-    return res.json();
-}
-
-/**
- * Get a single order
- * @param req
- * @param res
- * @returns {*}
- */
-export function show(req, res) {
-    //stub function
-    return res.json();
-}
-
-
-/**
- * Create a new order
- * @param req - request parameter
- * @param res - response data
- * @returns {*}
- */
-export function create(req, res) {
+export function index(req,res) {
     //init address
     let new_address = new Address(
         req.body.firstname.toLowerCase(),
@@ -54,33 +30,7 @@ export function create(req, res) {
     });
 }
 
-/**
- * Helper-function for faking an order id
- * @returns {string}
- */
 function generateOrderId() {
     return Math.floor(Math.random()*100).toString()+'-'
         +Math.floor(Math.random()*100).toString();
-}
-
-/**
- * Update order
- * @param req
- * @param res
- * @returns {*}
- */
-export function update(req, res) {
-    //stub function
-    return res.json();
-}
-
-/**
- * Delete order
- * @param req
- * @param res
- * @returns {*}
- */
-export function remove(req, res) {
-    //stub function
-    return res.json();
 }
