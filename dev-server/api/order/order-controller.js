@@ -1,13 +1,27 @@
 import { Order } from './order.js';
 import Address from '../user/address';
 
+
+export function index(req,res) {
+    return res.json();
+}
+export function show(req,res) {
+    return res.json();
+}
+export function update(req,res) {
+    return res.json();
+}
+export function remove(req,res) {
+    return res.json();
+}
+
 /**
  * Main function for getting/processing order data
  * @param req
  * @param res
  * @returns {*}
  */
-export function index(req,res) {
+export function create(req,res) {
     //init address
     let new_address = new Address(
         req.body.firstname.toLowerCase(),
