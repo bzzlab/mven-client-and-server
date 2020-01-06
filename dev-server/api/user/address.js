@@ -47,4 +47,5 @@ class Address {
     }
 }
 
+//Alternative way to export a module
 export default Address;

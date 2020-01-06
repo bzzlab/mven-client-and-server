@@ -1,6 +1,6 @@
 import { Order } from './order.js';
+//Alternative way to import a module compared to order above
 import Address from '../user/address';
-
 
 export function index(req,res) {
     return res.json();
