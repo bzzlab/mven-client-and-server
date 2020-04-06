@@ -1,4 +1,4 @@
-class Account {
+class User {
     get id() {
         return this._id;
     }
@@ -28,4 +28,4 @@ class Account {
     }
 }
 
-export default Account;
+export default User;

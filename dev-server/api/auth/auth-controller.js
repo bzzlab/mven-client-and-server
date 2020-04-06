@@ -1,11 +1,25 @@
 import { StringUtil } from "../../utilities/string-util";
+import UserModel from "../../model/user-model";
 
 export function index(req, res) {
     const validation = validateIndex(req.body);
     if (!validation.isValid){
         return res.json({message: validation.message});
     }
-    return res.json();
+    UserModel.findOne({ email: req.body.email.toLowerCase()}, (error,user) =>{
+        if (error){
+            return res.status(500).json({ message: 'error in auth-controller -> index.'});
+        }
+        if (!user){
+            return res.status(401).json({ message: 'auth-controller -> index: user not found!'});
+        }
+
+        const passwordsMatch = true;
+        if (!passwordsMatch){
+            return res.status(401).json({ message: 'auth-controller -> index: password does not match!'});
+        }
+        return res.status(200).json();
+    })
 }
 
 /**

@@ -1,4 +1,5 @@
 import { StringUtil } from "../../utilities/string-util";
+import UserModel from "../../model/user-model";
 
 export function index(req, res) {
     const validation = validateIndex(req.body);
@@ -6,12 +7,20 @@ export function index(req, res) {
         return res.json({message: validation.message});
     }
 
-    const user = {
+    const userModel = new UserModel ({
         username: req.body.username.toLowerCase(),
         password: req.body.password
-    };
-    console.log(user);
-    return res.json();
+    });
+    userModel.save(error => {
+        if (error){
+            if (error.code === 11000) {
+                return res.status(403).json({ message: 'Username is already in use!'});
+            }
+            return res.status(500).json({ message: 'error in register-controller -> index.'});
+        }
+        return res.status(200).json();
+    });
+
 }
 
 /**

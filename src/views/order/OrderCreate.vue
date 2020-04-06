@@ -28,9 +28,17 @@
                     <input v-model="order.zip" type="text" class="form-control" id="inputZip" placeholder="Postleitzahl">
                 </div>
             </div>
-            <h4>Order details</h4>
+        <h4>Order details</h4>
         <div class="form-group">
-            <label for="numOfTickets">Number of tickets:</label>
+            <label for="concertPassType">Concert pass:</label>
+            <select v-model="order.concertPassType" class="form-control" id="concertPassType">
+                <option value="1">1-DayPass</option>
+                <option value="2">2-DayPass</option>
+                <option value="3">3-DayPass</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="numOfTickets">Number of concert pass:</label>
             <select v-model="order.numOfTickets" class="form-control" id="numOfTickets">
                 <option>1</option>
                 <option>2</option>
@@ -94,7 +102,8 @@
                 street: "",
                 city: "",
                 zip:"",
-                numOfTickets:""
+                concertPassType:-1,
+                numOfTickets:-1
             }
         }),
         methods:{

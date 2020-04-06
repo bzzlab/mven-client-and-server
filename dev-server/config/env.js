@@ -11,7 +11,7 @@ import bodyParser from 'body-parser';
 
 /**
  * Determines the current environment and sets the appropriate variables
- * @param {Express App} app
+ * @param app
  */
 export function setEnvironment(app) {
     //if this application it's not in production mode ...
@@ -24,10 +24,11 @@ export function setEnvironment(app) {
 
 /**
  * Used to set development environment variables
- * @param {Express App} app
+ * @param app
  */
 function setDevEnv(app) {
     process.env.NODE_ENV = 'development';
+    process.env.DB_URL = 'mongodb://localhost:27017/dev-db';
     //remark - these log entries appear only on the server and are not sent to the client!
     //console.log(`running in development mode`); --> done now in index.js
 
@@ -42,10 +43,11 @@ function setDevEnv(app) {
 
 /**
  * Used to set production environment variables
- * @param {Express App} app
+ * @param app
  */
 function setProdEnv(app) {
     process.env.NODE_ENV = 'production';
+    process.env.DB_URL = 'mongodb://localhost:27017/prod-db';
     //console.log(`running in production mode`);
     //add static routes in order to serve static content (i.e. images) from the build folder called dist
     app.use(express.static(__dirname + '/../../dist'));

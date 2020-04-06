@@ -5,8 +5,13 @@ import express from 'express';
 const app = express();
 import { registerRoutes } from "./routes";
 import { setEnvironment } from "./config/env";
+import { connectToDB } from "./config/db";
 
+//set all environment variables
 setEnvironment(app);
+//connect to database
+connectToDB();
+//set all REST-API routes
 registerRoutes(app);
 
 const port = 3000;

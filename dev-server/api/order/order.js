@@ -1,10 +1,25 @@
 //const Order = class {
 class Order {
-    set account(value) {
-        this._account = value;
+    get product() {
+        return this._product;
     }
-    get account() {
-        return this._account;
+
+    set product(value) {
+        this._product = value;
+    }
+
+    get amount() {
+        return this._amount;
+    }
+
+    set amount(value) {
+        this._amount = value;
+    }
+    set address(value) {
+        this._address = value;
+    }
+    get address() {
+        return this._address;
     }
     get orderid() {
         return this._orderid;
@@ -13,10 +28,12 @@ class Order {
         this._orderid = value;
     }
 
-    constructor(orderid, account){
+    constructor(orderid, address, product, amount){
         this._orderid = orderid;
-        this._account = account;
+        this._address = address;
+        this._product = product;
+        this._amount = amount;
     }
-};
+}
 
 export { Order };
